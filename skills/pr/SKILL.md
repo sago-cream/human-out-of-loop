@@ -15,9 +15,11 @@ description: "Review committed changes and publish a maintainer-ready draft PR i
 
 1. Use the preflight base and head; verify worktree HEAD before each review.
 2. Review the complete `base...head` diff. Report actionable findings and stop.
+   Run repository checks with CI-equivalent options; expected visual changes need scoped assertions, not blanket bypasses.
 3. For every UI change, reuse supplied media or capture matched, reproducible before/after media from base and head. Capture `Before` from the exact base commit the PR will merge into and `After` from the reviewed head. On follow-ups, reuse or recapture `Before` from that base; never use an earlier feature-branch revision or a prior `After` as the new `Before`:
    - Use video for interaction, motion, or multiple steps; images otherwise.
-   - Match viewport, state, data, and action sequence.
+     Keep recordings focused and paced for a reviewer, and inspect the exported media before publication.
+   - Match viewport, state, data, and action sequence; verify each capture runs the intended revision's build.
    - Frame screenshots with enough surrounding UI to make the changed element's location and purpose clear, including a page or section landmark and relevant adjacent controls. Prefer viewport- or section-level framing; use tight element crops only when context is genuinely unnecessary.
    - Keep media untracked through `.git/info/exclude`.
    - Never publish with either side missing.
@@ -41,5 +43,7 @@ Immediately before publication, verify worktree HEAD equals the reviewed head. I
 For UI changes, run `bash scripts/pr-media-upload OWNER/REPO FILE`; if it fails, use the GitHub editor. Use each returned reference exactly as emitted.
 
 For an existing draft, snapshot with `bash scripts/pr-publish --snapshot > /tmp/pr-body.old` and preserve its content. Publish with `bash scripts/pr-publish REVIEWED_BASE REVIEWED_HEAD TITLE [/tmp/pr-body.old] < /tmp/pr-body.md`; it blocks stale reviews, unsafe body replacement, invalid titles or media, and mismatched draft metadata or commits.
+
+After pushing, wait for required checks on that head and resolve failures before reporting completion.
 
 Only create or update drafts unless the user explicitly requests a merge. For an explicit merge request, mark the reviewed PR ready if necessary and merge it; otherwise never mark ready or merge. Never request reviewers, enable auto-merge, or post GitHub review activity.
