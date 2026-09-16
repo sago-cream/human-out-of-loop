@@ -4,9 +4,7 @@ Agent skills for turning completed work—or a fresh GitHub issue—into a revie
 
 ## Install
 
-`pr` works with skill-compatible coding agents that can run shell commands, Git, and the authenticated GitHub CLI (`gh`). UI changes also require tools for capturing screenshots or videos.
-
-`solve-issue` and `solve-issue-review` currently require the Codex desktop app because they use its task-management tools.
+Requires Git and authenticated GitHub CLI (`gh`). The issue-solving skills also require the Codex desktop app.
 
 Install with the [Skills CLI](https://github.com/vercel-labs/skills), then select your agent and skills:
 
