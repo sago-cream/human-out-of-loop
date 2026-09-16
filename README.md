@@ -1,31 +1,25 @@
 # human-out-of-loop
 
-Agent skills for turning completed work—or a fresh GitHub issue—into a reviewed, maintainer-ready draft PR.
+Agent skills for turning completed work—or a fresh GitHub issue—into a reviewed draft PR.
 
 ## Install
 
 Requires Git and authenticated GitHub CLI (`gh`). The issue-solving skills also require the Codex desktop app.
 
-Install with the [Skills CLI](https://github.com/vercel-labs/skills), then select your agent and skills:
-
 ```bash
 npx skills add sago-cream/human-out-of-loop -g
 ```
 
-Add `--skill pr` to install only the PR skill, or `-a codex` to target Codex. You can also ask Codex:
+Or ask Codex:
 
 > Install the skills from `sago-cream/human-out-of-loop`.
 
 ### Update
 
-Check for updates and update installed skills:
-
 ```bash
 npx skills check
 npx skills update
 ```
-
-The Skills CLI installs directly from GitHub; no release archive or manual download is needed.
 
 ## What it catches
 
