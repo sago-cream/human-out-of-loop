@@ -32,11 +32,10 @@ ISSUE_SKIPPED issue=<number> reason=covered_by_pr pr=<url>
 
 Each issue-owning task completes the whole workflow:
 
-1. Activate `$ponytail` at full intensity.
-2. Implement the issue, run relevant checks, and commit the complete solution.
-3. For UI changes, keep `.codex-pr-media/` untracked through `.git/info/exclude` and capture matched, reproducible before/after media: video for interaction, motion, or multiple steps; images otherwise.
-4. Require a clean worktree except ignored PR media, then run `$pr`.
-5. If `$pr` finds actionable problems, fix and commit them, rerun checks, and invoke `$pr` again. Repeat in the same task until it publishes a draft PR.
-6. Report the issue, published head, PR URL, and checks. Never merge or mark a PR ready.
+1. Implement the issue, run relevant checks, and commit the complete solution.
+2. For UI changes, keep `.codex-pr-media/` untracked through `.git/info/exclude` and capture matched, reproducible before/after media: video for interaction, motion, or multiple steps; images otherwise.
+3. Require a clean worktree except ignored PR media, then run `$pr`.
+4. If `$pr` finds actionable problems, fix and commit them, rerun checks, and invoke `$pr` again. Repeat in the same task until it publishes a draft PR.
+5. Report the issue, published head, PR URL, and checks. Never merge or mark a PR ready.
 
 On continuation, find and resume the existing issue-owning task, branch, worktree, and draft. Never create replacements for work that still exists.

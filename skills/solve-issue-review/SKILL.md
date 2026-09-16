@@ -1,6 +1,6 @@
 ---
 name: solve-issue-review
-description: "Turn exact or picked GitHub issues into independently reviewed draft PRs using isolated Ponytail developers and reviewers. Use for issue-to-PR runs, picked batches, or continuation; batches default to parallel."
+description: "Turn exact or picked GitHub issues into independently reviewed draft PRs using isolated developers and independent reviewers. Use for issue-to-PR runs, picked batches, or continuation; batches default to parallel."
 ---
 
 ## Select
@@ -23,7 +23,7 @@ ISSUE_SKIPPED issue=<number> reason=covered_by_pr pr=<url>
 
 - Let `$pr` publish the draft PR in the current branch's writable remote repository; never select or pass a publication mode.
 - Give each issue one sidebar-visible `DEV` in an isolated worktree and one independent, source-read-only `REV`, created only after `DEV` produces a committed head.
-- Use no neutral seed, transient subagent, Ponytail-enabled `REV`, or `REV` forked from `DEV`.
+- Use no neutral seed, transient subagent, or `REV` forked from `DEV`.
 - Keep review feedback inside Codex tasks; never post GitHub review activity.
 - Treat active workers as black boxes. ORCH routes lifecycle state; it never repeats or independently interprets worker diagnosis, design, implementation, or validation commentary.
 - ORCH reports only selection/dispatch, an accepted ready head, review/fix transitions, publication, skip, or blocker. Worker tasks own detailed progress narration.
@@ -38,7 +38,6 @@ ISSUE_SKIPPED issue=<number> reason=covered_by_pr pr=<url>
 1. Query issues and open/draft PRs. Select without replacement; recheck before each sequential dispatch or once per parallel batch.
 2. Create branch `<type>/<short-kebab-description>` using the narrowest of `fix`, `feat`, `docs`, `refactor`, `test`, or `chore`. Never namespace it.
 3. Create `DEV` with repo, issue + URL, branch, base, absolute worktree, and optional media path. Require `DEV` to:
-   - Activate `$ponytail` at full intensity.
    - Trust ORCH's coverage check. Recheck only after delay, interruption, or resumption; if covered, stop unchanged with `ISSUE_SKIPPED issue=<number> reason=covered_by_pr pr=<url>`.
    - For UI changes, exclude `.codex-pr-media/` through `.git/info/exclude` and capture matched, reproducible before/after media: video for interaction, motion, or multiple steps; images otherwise.
    - Implement, commit, and check. Before readiness, restore only agent-generated artifacts outside the commit and require a clean worktree except ignored media.
