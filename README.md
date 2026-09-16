@@ -1,18 +1,29 @@
 # human-out-of-loop
 
-Codex skills for turning completed work—or a fresh GitHub issue—into a reviewed, maintainer-ready draft PR.
+Agent skills for turning completed work—or a fresh GitHub issue—into a reviewed draft PR.
 
 ## Install
 
-Requires the Codex desktop app and GitHub access.
+Requires Git and authenticated GitHub CLI (`gh`). The issue-solving skills also require the Codex desktop app.
 
-Ask Codex:
+```bash
+npx skills add sago-cream/human-out-of-loop -g
+```
+
+Or ask Codex:
 
 > Install the skills from `sago-cream/human-out-of-loop`.
 
+### Update
+
+```bash
+npx skills check
+npx skills update
+```
+
 ## What it catches
 
-Before opening the PR, Codex checks the complete change for:
+Before opening the PR, the agent checks the complete change for:
 
 - Incorrect or incomplete behavior
 - Unintended changes and scope creep
