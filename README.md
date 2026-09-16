@@ -6,9 +6,26 @@ Codex skills for turning completed work—or a fresh GitHub issue—into a revie
 
 Requires the Codex desktop app and GitHub access.
 
-Ask Codex:
+Install all skills globally for Codex with the [Skills CLI](https://github.com/vercel-labs/skills):
+
+```bash
+npx skills add sago-cream/human-out-of-loop -g -a codex
+```
+
+To install only `$pr`, add `--skill pr` to the command. You can also ask Codex:
 
 > Install the skills from `sago-cream/human-out-of-loop`.
+
+### Update
+
+Check for updates and update installed skills:
+
+```bash
+npx skills check
+npx skills update
+```
+
+The Skills CLI installs directly from GitHub; no release archive or manual download is needed.
 
 ## What it catches
 
