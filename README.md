@@ -1,18 +1,20 @@
 # human-out-of-loop
 
-Codex skills for turning completed work—or a fresh GitHub issue—into a reviewed, maintainer-ready draft PR.
+Agent skills for turning completed work—or a fresh GitHub issue—into a reviewed, maintainer-ready draft PR.
 
 ## Install
 
-Requires the Codex desktop app and GitHub access.
+`pr` works with skill-compatible coding agents that can run shell commands, Git, and the authenticated GitHub CLI (`gh`). UI changes also require tools for capturing screenshots or videos.
 
-Install all skills globally for Codex with the [Skills CLI](https://github.com/vercel-labs/skills):
+`solve-issue` and `solve-issue-review` currently require the Codex desktop app because they use its task-management tools.
+
+Install with the [Skills CLI](https://github.com/vercel-labs/skills), then select your agent and skills:
 
 ```bash
-npx skills add sago-cream/human-out-of-loop -g -a codex
+npx skills add sago-cream/human-out-of-loop -g
 ```
 
-To install only `$pr`, add `--skill pr` to the command. You can also ask Codex:
+Add `--skill pr` to install only the PR skill, or `-a codex` to target Codex. You can also ask Codex:
 
 > Install the skills from `sago-cream/human-out-of-loop`.
 
@@ -29,7 +31,7 @@ The Skills CLI installs directly from GitHub; no release archive or manual downl
 
 ## What it catches
 
-Before opening the PR, Codex checks the complete change for:
+Before opening the PR, the agent checks the complete change for:
 
 - Incorrect or incomplete behavior
 - Unintended changes and scope creep
