@@ -4,7 +4,7 @@ Codex skills for turning completed work—or a fresh GitHub issue—into a revie
 
 ## Install
 
-Requires the Codex desktop app, GitHub access, and [Ponytail](https://github.com/DietrichGebert/ponytail).
+Requires the Codex desktop app and GitHub access.
 
 Ask Codex:
 
